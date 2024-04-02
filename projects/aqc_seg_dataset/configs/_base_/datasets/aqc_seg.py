@@ -1,6 +1,6 @@
 # dataset settings
 dataset_type = 'AQCSegDataset'
-data_root = '/home/user/catkin_ws/src/CloudPose_6DoF/aQC_seg_voc'
+data_root = '/home/user/catkin_ws/src/CloudPose_6DoF/aQC_seg_voc_v3'
 crop_size = (1024, 1024)
 train_pipeline = [
     dict(type='LoadImageFromFile'),

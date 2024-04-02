@@ -2,7 +2,7 @@ _base_ = [
     '../../../configs/_base_/models/segformer_mit-b0.py',
     './_base_/datasets/aqc_seg.py', 
     '../../../configs/_base_/default_runtime.py',
-    '../../../configs/_base_/schedules/schedule_20k.py'
+    '../../../configs/_base_/schedules/schedule_40k.py'
 ]
 custom_imports = dict(
     imports=['projects.aqc_seg_dataset.mmseg.datasets.aqc_seg'])
@@ -35,7 +35,7 @@ param_scheduler = [
         eta_min=0.0,
         power=1.0,
         begin=0,
-        end=20000,
+        end=40000,
         by_epoch=False,
     )
 ]

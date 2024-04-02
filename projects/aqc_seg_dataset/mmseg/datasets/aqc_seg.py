@@ -15,9 +15,9 @@ class AQCSegDataset(BaseSegDataset):
         split (str): Split txt file for Pascal VOC.
     """
     METAINFO = dict(
-        classes=('background', 'spreader'),
+        classes=('background', 'spreader', 'cell_guide'),
             
-        palette=[[0, 0, 0], [128,0,0]])
+        palette=[[0, 0, 0], [128,0,0], [0, 128, 0]])
 
     def __init__(self,
                  ann_file,
