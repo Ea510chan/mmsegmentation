@@ -22,7 +22,7 @@ data_preprocessor = dict(
         57.375,
     ],
     type='SegDataPreProcessor')
-data_root = '/home/user/catkin_ws/src/sidewalk_navigation/semantic_segmentation/aQC_seg_voc'
+data_root = '/home/yichen/datasets/aQC/2024_07_31_annotations'
 dataset_type = 'PascalVOCDataset'
 default_hooks = dict(
     checkpoint=dict(by_epoch=False, interval=16000, type='CheckpointHook'),
@@ -178,7 +178,7 @@ test_dataloader = dict(
         data_prefix=dict(
             img_path='JPEGImages', seg_map_path='SegmentationClass'),
         data_root=
-        '/home/user/catkin_ws/src/sidewalk_navigation/semantic_segmentation/aQC_seg_voc',
+        '/home/yichen/datasets/aQC/2024_07_31_annotations',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(keep_ratio=True, scale=(
