@@ -1,6 +1,6 @@
 # dataset settings
 dataset_type = 'AQCSegDataset'
-data_root = '/home/user/datasets/aQC/2024_07_31_aQC_seg_v2'
+data_root = '/home/user/OneDrive/General - MSc of aQC Project/Release/aqc_phase1_spreader_cell_guide'
 crop_size = (1024, 1024)
 train_pipeline = [
     dict(type='LoadImageFromFile'),
@@ -40,8 +40,8 @@ tta_pipeline = [
         ])
 ]
 train_dataloader = dict(
-    batch_size=4,
-    num_workers=4,
+    batch_size=8,
+    num_workers=16,
     persistent_workers=True,
     sampler=dict(type='InfiniteSampler', shuffle=True),
     dataset=dict(
@@ -52,8 +52,8 @@ train_dataloader = dict(
         ann_file='train.txt',
         pipeline=train_pipeline))
 val_dataloader = dict(
-    batch_size=1,
-    num_workers=4,
+    batch_size=8,
+    num_workers=16,
     persistent_workers=True,
     sampler=dict(type='DefaultSampler', shuffle=False),
     dataset=dict(
