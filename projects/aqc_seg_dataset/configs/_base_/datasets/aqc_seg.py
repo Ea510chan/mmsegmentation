@@ -1,6 +1,6 @@
 # dataset settings
 dataset_type = 'AQCSegDataset'
-data_root = '/home/user/OneDrive/General - MSc of aQC Project/Release/aqc_phase1_spreader_cell_guide'
+data_root = '/home/user/OneDrive/General - MSc of aQC Project/Release/aqc_phase2_spreader_cell_guide'
 crop_size = (1024, 1024)
 train_pipeline = [
     dict(type='LoadImageFromFile'),
@@ -61,9 +61,20 @@ val_dataloader = dict(
         data_root=data_root,
         data_prefix=dict(
             img_path='JPEGImages', seg_map_path='SegmentationClass'),
+        ann_file='val.txt',
+        pipeline=test_pipeline))
+test_dataloader = val_dataloader = dict(
+    batch_size=8,
+    num_workers=16,
+    persistent_workers=True,
+    sampler=dict(type='DefaultSampler', shuffle=False),
+    dataset=dict(
+        type=dataset_type,
+        data_root=data_root,
+        data_prefix=dict(
+            img_path='JPEGImages', seg_map_path='SegmentationClass'),
         ann_file='test.txt',
         pipeline=test_pipeline))
-test_dataloader = val_dataloader
 
 val_evaluator = dict(type='IoUMetric', iou_metrics=['mIoU'])
 test_evaluator = val_evaluator
